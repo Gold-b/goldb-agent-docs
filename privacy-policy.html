@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Privacy Policy — Gold-B's Agent</title>
+  <link rel="icon" href="favicon.ico" type="image/x-icon">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+      background: #0f1117; color: #e0e0e0;
+      line-height: 1.8; padding: 0;
+    }
+    header {
+      text-align: center; padding: 48px 24px 32px;
+      background: #161a25; border-bottom: 1px solid #1e293b;
+    }
+    header h1 { font-size: 2rem; font-weight: 700; color: #fff; margin-bottom: 8px; }
+    header p { color: #9ca3af; font-size: 0.9rem; }
+    .container { max-width: 760px; margin: 0 auto; padding: 40px 24px 60px; }
+    h2 {
+      font-size: 1.25rem; font-weight: 600; color: #fff;
+      margin-top: 36px; margin-bottom: 14px;
+      padding-bottom: 8px; border-bottom: 1px solid #1e293b;
+    }
+    h3 { font-size: 1.05rem; font-weight: 600; color: #e2e8f0; margin-top: 20px; margin-bottom: 8px; }
+    p, li { color: #b0b8c4; margin-bottom: 10px; }
+    ul { padding-left: 24px; margin-bottom: 14px; }
+    li { margin-bottom: 6px; }
+    strong { color: #e2e8f0; }
+    code {
+      background: #1e293b; padding: 2px 7px; border-radius: 4px;
+      font-size: 0.88em; color: #93c5fd;
+    }
+    .scope-table {
+      width: 100%; border-collapse: collapse; margin: 16px 0 20px;
+      font-size: 0.9rem;
+    }
+    .scope-table th, .scope-table td {
+      text-align: left; padding: 10px 14px;
+      border-bottom: 1px solid #1e293b;
+    }
+    .scope-table th { color: #9ca3af; font-weight: 500; background: #161a25; }
+    .scope-table td { color: #b0b8c4; }
+    .highlight {
+      background: #1e293b; border: 1px solid #2d3748; border-radius: 10px;
+      padding: 18px 20px; margin: 20px 0;
+    }
+    .highlight p { margin-bottom: 0; }
+    a { color: #60a5fa; text-decoration: none; }
+    a:hover { text-decoration: underline; }
+    footer {
+      text-align: center; padding: 32px 24px; color: #6b7280; font-size: 0.85rem;
+      border-top: 1px solid #1e293b;
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <h1>Privacy Policy</h1>
+    <p>Last updated: February 18, 2025</p>
+  </header>
+
+  <div class="container">
+
+    <h2>1. Introduction</h2>
+    <p>Gold-B's Agent ("the Application", "we", "our") is a self-hosted WhatsApp automation platform that runs entirely on the user's own hardware. This Privacy Policy explains how the Application handles data, including information accessed through Google APIs.</p>
+    <p>By installing and using Gold-B's Agent, you ("the User") agree to the practices described in this policy.</p>
+
+    <h2>2. Self-Hosted Architecture</h2>
+    <p>Gold-B's Agent is designed as a <strong>self-hosted, privacy-first</strong> application:</p>
+    <ul>
+      <li>The Application runs as Docker containers on your local machine.</li>
+      <li><strong>No data is transmitted to or stored on any servers controlled by Gold-B's Agent.</strong></li>
+      <li>All configuration, credentials, messages, and cached data reside solely on your hardware, under your control.</li>
+      <li>We do not operate any cloud service, analytics platform, or centralized data store.</li>
+    </ul>
+
+    <h2>3. Google API Services — Data Access &amp; Usage</h2>
+    <p>The Application optionally integrates with Google services via OAuth 2.0. Each integration is independently enabled by the user. The Application requests the following scopes:</p>
+
+    <table class="scope-table">
+      <thead>
+        <tr><th>Google API Scope</th><th>Purpose</th><th>Data Accessed</th></tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td><code>spreadsheets</code></td>
+          <td>Log incoming leads and export data to Google Sheets</td>
+          <td>Read and write rows in user-specified spreadsheets</td>
+        </tr>
+        <tr>
+          <td><code>drive.file</code></td>
+          <td>Store documents created by automation rules in Google Drive</td>
+          <td>Create and read files that the Application itself created (no access to other Drive files)</td>
+        </tr>
+        <tr>
+          <td><code>gmail.modify</code></td>
+          <td>Read incoming emails for lead processing and send automated email replies</td>
+          <td>Read, send, and manage labels on emails in the connected Gmail account</td>
+        </tr>
+        <tr>
+          <td><code>calendar.events</code></td>
+          <td>Create calendar reminders and events triggered by automation rules</td>
+          <td>Create and edit events in Google Calendar</td>
+        </tr>
+        <tr>
+          <td><code>userinfo.email</code></td>
+          <td>Identify the connected Google account in the admin panel</td>
+          <td>Email address of the authenticated Google account</td>
+        </tr>
+      </tbody>
+    </table>
+
+    <h3>3.1 How Google Data Is Used</h3>
+    <ul>
+      <li>Google data is accessed <strong>only to perform the specific automation tasks</strong> configured by the user (e.g., logging a lead to a spreadsheet, sending an email notification).</li>
+      <li>Data retrieved from Google APIs is processed locally and is <strong>not forwarded to any third party</strong>.</li>
+      <li>AI providers (e.g., Gemini, OpenAI) configured in the Application <strong>do not receive Google API data</strong> unless the user explicitly configures a rule that passes such data to an AI-generated response.</li>
+    </ul>
+
+    <h3>3.2 How Google Data Is Stored</h3>
+    <ul>
+      <li>OAuth 2.0 tokens (access and refresh tokens) are stored locally on your machine, encrypted with <strong>AES-256-GCM</strong> using a key derived from your gateway password via PBKDF2 (600,000 iterations).</li>
+      <li>Tokens are stored in the Application's local configuration file and are <strong>never transmitted externally</strong>.</li>
+      <li>If you change your gateway password, all stored tokens are automatically invalidated and must be re-authorized.</li>
+    </ul>
+
+    <h3>3.3 How Google Data Is Shared</h3>
+    <div class="highlight">
+      <p><strong>Gold-B's Agent does not share Google user data with any third parties.</strong> All data processing occurs locally on your machine. We do not sell, rent, license, or disclose Google user data to anyone.</p>
+    </div>
+
+    <h3>3.4 Google API Services User Data Policy Compliance</h3>
+    <p>Gold-B's Agent's use and transfer of information received from Google APIs adheres to the <a href="https://developers.google.com/terms/api-services-user-data-policy" target="_blank" rel="noopener">Google API Services User Data Policy</a>, including the Limited Use requirements:</p>
+    <ul>
+      <li>The Application only uses Google data for the purposes described in this policy and as configured by the user.</li>
+      <li>The Application does not use Google data for advertising, market research, or any purpose unrelated to the Application's core functionality.</li>
+      <li>The Application does not allow humans to read Google user data, except where the user has given affirmative consent (e.g., viewing their own data in the admin panel), it is necessary for security purposes, or it is required by law.</li>
+      <li>The Application does not transfer Google data to third parties except as necessary to provide the user-configured functionality.</li>
+    </ul>
+
+    <h2>4. Other Data Handling</h2>
+
+    <h3>4.1 WhatsApp Messages</h3>
+    <p>Incoming and outgoing WhatsApp messages are processed locally by the gateway container. Message content may be sent to the user's configured AI provider (e.g., Google Gemini, OpenAI) for generating responses. This is governed by the respective AI provider's privacy policy and the user's own API key agreement.</p>
+
+    <h3>4.2 Configuration Data</h3>
+    <p>All settings, rules, templates, keywords, and credentials are stored locally in the <code>%USERPROFILE%\.openclaw\</code> directory. Sensitive credentials are encrypted using Windows DPAPI or AES-256-GCM.</p>
+
+    <h3>4.3 Usage Analytics</h3>
+    <p>The Application collects local usage metrics (message counts, rule matches, token usage) stored as local NDJSON files with automatic 90-day retention. <strong>These metrics are never transmitted externally.</strong></p>
+
+    <h2>5. Data Retention &amp; Deletion</h2>
+    <ul>
+      <li><strong>Google tokens:</strong> Stored until the user revokes access via the admin panel or changes their gateway password. Users can revoke access at any time, which immediately deletes all stored tokens.</li>
+      <li><strong>Local data:</strong> Retained as long as the Application is installed. Uninstalling the Application removes all local data.</li>
+      <li><strong>Usage logs:</strong> Automatically purged after 90 days.</li>
+    </ul>
+
+    <h2>6. User Rights</h2>
+    <p>Since Gold-B's Agent is self-hosted, you have full control over your data:</p>
+    <ul>
+      <li><strong>Access:</strong> All data is on your machine — you can inspect any file at any time.</li>
+      <li><strong>Deletion:</strong> You can delete any data by removing files from the local storage directory or uninstalling the Application.</li>
+      <li><strong>Revocation:</strong> You can disconnect Google integrations at any time via the admin panel or from your <a href="https://myaccount.google.com/permissions" target="_blank" rel="noopener">Google Account permissions page</a>.</li>
+      <li><strong>Portability:</strong> Configuration files are stored in standard JSON format and can be exported at any time.</li>
+    </ul>
+
+    <h2>7. Security Measures</h2>
+    <ul>
+      <li>OAuth 2.0 with PKCE (SHA-256) for Google authentication</li>
+      <li>AES-256-GCM encryption for stored tokens with PBKDF2-derived keys</li>
+      <li>CSRF protection with one-time-use state tokens (5-minute TTL)</li>
+      <li>Timing-safe comparisons for all credential operations</li>
+      <li>Docker container isolation with minimal privileges</li>
+      <li>API rate limiting on all endpoints</li>
+    </ul>
+
+    <h2>8. Children's Privacy</h2>
+    <p>Gold-B's Agent is not intended for use by individuals under the age of 18. We do not knowingly process data from minors.</p>
+
+    <h2>9. Changes to This Policy</h2>
+    <p>We may update this Privacy Policy from time to time. Changes will be reflected in updated versions of the Application. The "Last updated" date at the top of this page indicates the most recent revision.</p>
+
+    <h2>10. Contact</h2>
+    <p>If you have questions about this Privacy Policy or the Application's data practices, please contact us by opening an issue on our project repository or by email at the address provided in the Application's documentation.</p>
+
+  </div>
+
+  <footer>
+    <p><a href="home.html">Home</a> &middot; <a href="terms.html">Terms of Service</a></p>
+    <p style="margin-top: 8px;">&copy; 2025 Gold-B's Agent. All rights reserved.</p>
+  </footer>
+
+</body>
+</html>

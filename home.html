@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Gold-B's Agent — WhatsApp Automation Platform</title>
+  <link rel="icon" href="favicon.ico" type="image/x-icon">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+      background: #0f1117; color: #e0e0e0;
+      line-height: 1.7; padding: 0;
+    }
+    .hero {
+      text-align: center; padding: 80px 24px 48px;
+      background: linear-gradient(180deg, #161a25 0%, #0f1117 100%);
+    }
+    .hero h1 { font-size: 2.4rem; font-weight: 700; color: #fff; margin-bottom: 12px; }
+    .hero .tagline { font-size: 1.15rem; color: #9ca3af; max-width: 560px; margin: 0 auto 32px; }
+    .hero .badge {
+      display: inline-block; background: #1e293b; color: #60a5fa;
+      padding: 6px 16px; border-radius: 20px; font-size: 0.85rem; font-weight: 500;
+    }
+    .container { max-width: 800px; margin: 0 auto; padding: 0 24px; }
+    section { padding: 48px 0; }
+    section + section { border-top: 1px solid #1e293b; }
+    h2 { font-size: 1.5rem; font-weight: 600; color: #fff; margin-bottom: 20px; }
+    p { margin-bottom: 14px; color: #b0b8c4; }
+    .features { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; margin-top: 24px; }
+    .feature-card {
+      background: #161a25; border: 1px solid #1e293b; border-radius: 12px; padding: 20px;
+    }
+    .feature-card h3 { font-size: 1rem; font-weight: 600; color: #fff; margin-bottom: 8px; }
+    .feature-card p { font-size: 0.9rem; margin-bottom: 0; }
+    .integrations { display: flex; flex-wrap: wrap; gap: 10px; margin-top: 16px; }
+    .int-badge {
+      background: #1e293b; border: 1px solid #2d3748; border-radius: 8px;
+      padding: 8px 16px; font-size: 0.85rem; color: #93c5fd;
+    }
+    footer {
+      text-align: center; padding: 40px 24px; color: #6b7280; font-size: 0.85rem;
+      border-top: 1px solid #1e293b;
+    }
+    footer a { color: #60a5fa; text-decoration: none; }
+    footer a:hover { text-decoration: underline; }
+    @media (max-width: 600px) {
+      .hero h1 { font-size: 1.8rem; }
+      .features { grid-template-columns: 1fr; }
+    }
+  </style>
+</head>
+<body>
+
+  <div class="hero">
+    <h1>Gold-B's Agent</h1>
+    <p class="tagline">A self-hosted WhatsApp automation platform with AI-powered responses, rule-based routing, and seamless Google integrations.</p>
+    <span class="badge">Self-Hosted &middot; Privacy-First &middot; Open Architecture</span>
+  </div>
+
+  <div class="container">
+
+    <section>
+      <h2>What is Gold-B's Agent?</h2>
+      <p>Gold-B's Agent is a locally-installed automation platform that connects your WhatsApp Business account to an AI assistant. It processes incoming messages, matches them against configurable keyword rules, and delivers templated or AI-generated responses — all running on your own machine.</p>
+      <p>The platform runs as two Docker containers on your computer: a gateway that handles WhatsApp messaging, and an admin panel for configuration. All data stays on your hardware — nothing is stored on external servers controlled by us.</p>
+    </section>
+
+    <section>
+      <h2>Key Features</h2>
+      <div class="features">
+        <div class="feature-card">
+          <h3>AI-Powered Responses</h3>
+          <p>Supports multiple AI providers (Gemini, OpenAI, Claude, Grok, Groq, Qwen) for intelligent, context-aware replies.</p>
+        </div>
+        <div class="feature-card">
+          <h3>Rule-Based Automation</h3>
+          <p>Keyword matching with template responses, lead routing, and multi-channel forwarding.</p>
+        </div>
+        <div class="feature-card">
+          <h3>Knowledge Base (RAG)</h3>
+          <p>Upload documents (PDF, DOCX, TXT) and let the AI retrieve relevant information to answer questions.</p>
+        </div>
+        <div class="feature-card">
+          <h3>Google Integrations</h3>
+          <p>Connect Google Sheets, Drive, Gmail, and Calendar for automated data logging and notifications.</p>
+        </div>
+      </div>
+    </section>
+
+    <section>
+      <h2>Google API Integrations</h2>
+      <p>Gold-B's Agent integrates with the following Google services to enhance automation workflows. Each integration is optional and can be enabled or disabled independently by the user.</p>
+      <div class="integrations">
+        <span class="int-badge">Google Sheets — Lead logging &amp; data export</span>
+        <span class="int-badge">Google Drive — Document storage</span>
+        <span class="int-badge">Gmail — Email reading &amp; sending</span>
+        <span class="int-badge">Google Calendar — Event reminders</span>
+      </div>
+    </section>
+
+    <section>
+      <h2>How It Works</h2>
+      <p><strong>1. Install</strong> — Run the installer on your Windows or Linux machine. It sets up Docker containers automatically.</p>
+      <p><strong>2. Configure</strong> — Open the admin panel at <code>localhost:18790</code> to set up keywords, rules, templates, and integrations.</p>
+      <p><strong>3. Connect</strong> — Scan the WhatsApp QR code and optionally connect your Google account via OAuth 2.0.</p>
+      <p><strong>4. Automate</strong> — The agent processes incoming messages 24/7, routing them through your configured rules and AI providers.</p>
+    </section>
+
+  </div>
+
+  <footer>
+    <p><a href="privacy-policy.html">Privacy Policy</a> &middot; <a href="terms.html">Terms of Service</a></p>
+    <p style="margin-top: 8px;">&copy; 2025 Gold-B's Agent. All rights reserved.</p>
+  </footer>
+
+</body>
+</html>
