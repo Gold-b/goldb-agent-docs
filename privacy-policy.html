@@ -63,13 +63,13 @@
 
   <header>
     <h1>Privacy Policy</h1>
-    <p>Last updated: February 18, 2026</p>
+    <p>Last updated: March 14, 2026</p>
   </header>
 
   <div class="container">
 
     <h2>1. Introduction</h2>
-    <p>Gold-B's Agent ("the Application", "we", "our") is a self-hosted WhatsApp automation platform that runs entirely on the user's own hardware. This Privacy Policy explains how the Application handles data, including information accessed through Google APIs.</p>
+    <p>Gold-B's Agent ("the Application", "we", "our") is a self-hosted multi-channel messaging automation platform that runs entirely on the user's own hardware. This Privacy Policy explains how the Application handles data, including information accessed through Google APIs, Microsoft Graph APIs, and third-party messaging services.</p>
     <p>By installing and using Gold-B's Agent, you ("the User") agree to the practices described in this policy.</p>
 
     <h2>2. Self-Hosted Architecture</h2>
@@ -106,8 +106,8 @@
         </tr>
         <tr>
           <td><code>calendar.events</code></td>
-          <td>Create calendar reminders and events triggered by automation rules</td>
-          <td>Create and edit events in Google Calendar</td>
+          <td>Create follow-up reminder events in the user's Google Calendar when automation rules are triggered by incoming leads. List available calendars for configuration.</td>
+          <td>Create events in Google Calendar, list calendar names</td>
         </tr>
         <tr>
           <td><code>userinfo.email</code></td>
@@ -145,50 +145,120 @@
       <li>The Application does not transfer Google data to third parties except as necessary to provide the user-configured functionality.</li>
     </ul>
 
-    <h2>4. Other Data Handling</h2>
+    <h2>4. Microsoft 365 API Services — Data Access &amp; Usage</h2>
+    <p>The Application optionally integrates with Microsoft 365 services via OAuth 2.0 (PKCE). Each integration is independently enabled by the user. The Application requests the following Microsoft Graph API permissions:</p>
 
-    <h3>4.1 WhatsApp Messages</h3>
-    <p>Incoming and outgoing WhatsApp messages are processed locally by the gateway container. Message content may be sent to the user's configured AI provider (e.g., Google Gemini, OpenAI) for generating responses. This is governed by the respective AI provider's privacy policy and the user's own API key agreement.</p>
+    <table class="scope-table">
+      <thead>
+        <tr><th>Microsoft Graph Permission</th><th>Purpose</th><th>Data Accessed</th></tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td><code>Files.ReadWrite</code></td>
+          <td>Store and retrieve documents in OneDrive</td>
+          <td>Create, read, and list files in the user's OneDrive</td>
+        </tr>
+        <tr>
+          <td><code>Mail.ReadWrite</code></td>
+          <td>Read incoming emails for lead processing and send automated replies</td>
+          <td>Read, send, and manage emails in the connected Outlook account</td>
+        </tr>
+        <tr>
+          <td><code>Calendars.ReadWrite</code></td>
+          <td>Create follow-up events and reminders in the user's calendar</td>
+          <td>Create and read calendar events, list calendars</td>
+        </tr>
+        <tr>
+          <td><code>User.Read</code></td>
+          <td>Identify the connected Microsoft account in the admin panel</td>
+          <td>Display name and email address of the authenticated account</td>
+        </tr>
+      </tbody>
+    </table>
 
-    <h3>4.2 Configuration Data</h3>
+    <h3>4.1 How Microsoft Data Is Used</h3>
+    <ul>
+      <li>Microsoft data is accessed <strong>only to perform the specific automation tasks</strong> configured by the user.</li>
+      <li>Data retrieved from Microsoft Graph APIs is processed locally and is <strong>not forwarded to any third party</strong>.</li>
+      <li>AI providers configured in the Application <strong>do not receive Microsoft API data</strong> directly. Microsoft data is used solely for direct automation tasks (file storage, email sending, scheduling).</li>
+    </ul>
+
+    <h3>4.2 How Microsoft Data Is Stored</h3>
+    <ul>
+      <li>OAuth 2.0 tokens (access and refresh tokens) are stored locally on your machine, encrypted with <strong>AES-256-GCM</strong> using a key derived from your gateway password via PBKDF2.</li>
+      <li>Tokens are stored in the Application's local configuration file and are <strong>never transmitted externally</strong>.</li>
+      <li>If you change your gateway password, all stored tokens are automatically invalidated and must be re-authorized.</li>
+    </ul>
+
+    <h3>4.3 How Microsoft Data Is Shared</h3>
+    <div class="highlight">
+      <p><strong>Gold-B's Agent does not share Microsoft user data with any third parties.</strong> All data processing occurs locally on your machine. We do not sell, rent, license, or disclose Microsoft user data to anyone.</p>
+    </div>
+
+    <h2>5. Multi-Channel Messaging</h2>
+    <p>In addition to WhatsApp, the Application supports the following messaging channels. All message processing occurs locally:</p>
+    <ul>
+      <li><strong>Telegram:</strong> Messages are received via the Telegram Bot API. Message content is processed locally and may be sent to the user's configured AI provider for generating responses.</li>
+      <li><strong>Instagram &amp; Facebook Messenger:</strong> Messages are received via Meta Graph API webhooks. Webhook payloads are verified using HMAC-SHA256 signatures. Message content is processed locally.</li>
+      <li><strong>SMS:</strong> Messages are sent and received via the Twilio API. Phone numbers and message content pass through Twilio's servers as required by the SMS protocol. This is governed by <a href="https://www.twilio.com/legal/privacy" target="_blank" rel="noopener">Twilio's Privacy Policy</a>.</li>
+      <li><strong>Email:</strong> Email is processed via Gmail API and/or Microsoft Graph API (as described in sections 3 and 4 above).</li>
+    </ul>
+    <p>For all channels, message content may be sent to the user's configured AI provider (e.g., Google Gemini, OpenAI, Anthropic) for generating responses. This is governed by the respective AI provider's privacy policy and the user's own API key agreement.</p>
+
+    <h2>6. Knowledge Base &amp; Document Processing</h2>
+    <ul>
+      <li><strong>Document uploads:</strong> Users may upload documents (PDF, DOCX, TXT, JSON) to create AI knowledge agents. Documents are stored locally, extracted, chunked, and indexed on your machine. Document content may be sent to the user's configured AI provider for enrichment and analysis.</li>
+      <li><strong>Knowledge Sources:</strong> The Application can optionally sync data from connected platforms (Gmail, Google Sheets, Google Drive, Google Calendar, OneDrive, Outlook, Microsoft Calendar, Microsoft Excel, WhatsApp, Telegram) into local knowledge agents. Synced data is stored locally and may be sent to AI providers for indexing and retrieval.</li>
+      <li><strong>OCR processing:</strong> Scanned documents may be processed using the user's configured AI provider (LLM Vision), Google Cloud Vision API (if configured), or local Tesseract OCR. Only LLM Vision and Google Cloud Vision involve external data transmission.</li>
+    </ul>
+
+    <h2>7. Other Data Handling</h2>
+
+    <h3>7.1 Configuration Data</h3>
     <p>All settings, rules, templates, keywords, and credentials are stored locally on your machine in a dedicated application directory. Sensitive credentials are encrypted using platform-native encryption (Windows DPAPI) or AES-256-GCM.</p>
 
-    <h3>4.3 Usage Analytics</h3>
+    <h3>7.2 Lead &amp; Webhook Data</h3>
+    <p>The Application receives lead data from configurable webhook sources (e.g., Facebook Ads, Zapier). Incoming webhook payloads are processed and stored locally. Lead data may be forwarded to WhatsApp groups or other channels as configured by the user.</p>
+
+    <h3>7.3 Usage Analytics</h3>
     <p>The Application collects local usage metrics (message counts, rule matches, token usage) stored as local NDJSON files with automatic 90-day retention. <strong>These metrics are never transmitted externally.</strong></p>
 
-    <h2>5. Data Retention &amp; Deletion</h2>
+    <h2>8. Data Retention &amp; Deletion</h2>
     <ul>
-      <li><strong>Google tokens:</strong> Stored until the user revokes access via the admin panel or changes their gateway password. Users can revoke access at any time, which immediately deletes all stored tokens.</li>
+      <li><strong>Google &amp; Microsoft tokens:</strong> Stored until the user revokes access via the admin panel or changes their gateway password. Users can revoke access at any time, which immediately deletes all stored tokens.</li>
+      <li><strong>Knowledge base documents:</strong> Stored locally until the user deletes them via the admin panel or uninstalls the Application.</li>
       <li><strong>Local data:</strong> Retained as long as the Application is installed. Uninstalling the Application removes all local data.</li>
       <li><strong>Usage logs:</strong> Automatically purged after 90 days.</li>
     </ul>
 
-    <h2>6. User Rights</h2>
+    <h2>9. User Rights</h2>
     <p>Since Gold-B's Agent is self-hosted, you have full control over your data:</p>
     <ul>
       <li><strong>Access:</strong> All data is on your machine — you can inspect any file at any time.</li>
       <li><strong>Deletion:</strong> You can delete any data by removing files from the local storage directory or uninstalling the Application.</li>
-      <li><strong>Revocation:</strong> You can disconnect Google integrations at any time via the admin panel or from your <a href="https://myaccount.google.com/permissions" target="_blank" rel="noopener">Google Account permissions page</a>.</li>
+      <li><strong>Revocation:</strong> You can disconnect Google integrations via the admin panel or from your <a href="https://myaccount.google.com/permissions" target="_blank" rel="noopener">Google Account permissions page</a>. You can disconnect Microsoft integrations via the admin panel or from your <a href="https://account.live.com/consent/Manage" target="_blank" rel="noopener">Microsoft Account permissions page</a>.</li>
       <li><strong>Portability:</strong> Configuration files are stored in standard JSON format and can be exported at any time.</li>
     </ul>
 
-    <h2>7. Security Measures</h2>
+    <h2>10. Security Measures</h2>
     <ul>
-      <li>OAuth 2.0 with PKCE (SHA-256) for Google authentication</li>
+      <li>OAuth 2.0 with PKCE (SHA-256) for Google and Microsoft authentication</li>
       <li>AES-256-GCM encryption for stored tokens with PBKDF2-derived keys</li>
       <li>CSRF protection with one-time-use state tokens (5-minute TTL)</li>
       <li>Timing-safe comparisons for all credential operations</li>
+      <li>Webhook signature verification (Meta HMAC-SHA256, Twilio HMAC-SHA1, Telegram secret_token)</li>
       <li>Docker container isolation with minimal privileges</li>
       <li>API rate limiting on all endpoints</li>
+      <li>SSRF protection on HTTP automation steps</li>
     </ul>
 
-    <h2>8. Children's Privacy</h2>
+    <h2>11. Children's Privacy</h2>
     <p>Gold-B's Agent is not intended for use by individuals under the age of 18. We do not knowingly process data from minors.</p>
 
-    <h2>9. Changes to This Policy</h2>
+    <h2>12. Changes to This Policy</h2>
     <p>We may update this Privacy Policy from time to time. Changes will be reflected in updated versions of the Application. The "Last updated" date at the top of this page indicates the most recent revision.</p>
 
-    <h2>10. Contact</h2>
+    <h2>13. Contact</h2>
     <p>If you have questions about this Privacy Policy or the Application's data practices, please contact us by opening an issue on our <a href="https://github.com/Gold-b/goldb-agent-docs/issues" target="_blank" rel="noopener">public support repository</a> or by email at <strong>goldb.agent.support@gmail.com</strong>.</p>
 
   </div>

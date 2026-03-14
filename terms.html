@@ -48,7 +48,7 @@
 
   <header>
     <h1>Terms of Service</h1>
-    <p>Last updated: February 18, 2026</p>
+    <p>Last updated: March 14, 2026</p>
   </header>
 
   <div class="container">
@@ -57,12 +57,16 @@
     <p>By installing, configuring, or using Gold-B's Agent ("the Application"), you ("the User") agree to be bound by these Terms of Service ("Terms"). If you do not agree to these Terms, do not install or use the Application.</p>
 
     <h2>2. Description of Service</h2>
-    <p>Gold-B's Agent is a self-hosted WhatsApp automation platform that runs locally on the user's hardware via Docker containers. The Application provides:</p>
+    <p>Gold-B's Agent is a self-hosted multi-channel messaging automation platform that runs locally on the user's hardware via Docker containers. The Application provides:</p>
     <ul>
-      <li>Automated WhatsApp message processing and responses</li>
+      <li>Multi-channel message processing and responses (WhatsApp, Telegram, Instagram, Facebook Messenger, SMS, Email)</li>
       <li>Keyword-based rule matching and template-based replies</li>
+      <li>A visual flow builder for designing complex automation workflows</li>
       <li>AI-powered response generation via third-party AI providers</li>
-      <li>Optional integrations with Google Sheets, Google Drive, Gmail, and Google Calendar</li>
+      <li>Knowledge base with document upload (PDF, DOCX, TXT) and AI-powered retrieval (RAG)</li>
+      <li>Knowledge Sources — automated data sync from 10 platforms into AI knowledge agents</li>
+      <li>Optional integrations with Google (Sheets, Drive, Gmail, Calendar) and Microsoft 365 (OneDrive, Outlook, Calendar, Excel)</li>
+      <li>Lead ingestion from multiple sources (Facebook Ads, Zapier, webhooks, manual entry)</li>
       <li>A web-based administration panel for configuration and monitoring</li>
     </ul>
 
@@ -79,7 +83,11 @@
     <p>The Application integrates with third-party services that are governed by their own terms and policies:</p>
     <ul>
       <li><strong>WhatsApp / Meta:</strong> Use of WhatsApp automation is subject to <a href="https://www.whatsapp.com/legal/terms-of-service" target="_blank" rel="noopener">WhatsApp's Terms of Service</a>. You are responsible for ensuring your use complies with WhatsApp's policies on automated and bulk messaging.</li>
+      <li><strong>Instagram &amp; Facebook Messenger (Meta):</strong> Use of Instagram and Messenger automation is subject to <a href="https://developers.facebook.com/terms/" target="_blank" rel="noopener">Meta Platform Terms</a> and <a href="https://developers.facebook.com/devpolicy/" target="_blank" rel="noopener">Meta Developer Policies</a>.</li>
+      <li><strong>Telegram:</strong> Use of Telegram Bot API is subject to <a href="https://telegram.org/tos" target="_blank" rel="noopener">Telegram's Terms of Service</a>.</li>
+      <li><strong>Twilio (SMS):</strong> SMS messaging is provided via Twilio and is subject to <a href="https://www.twilio.com/legal/tos" target="_blank" rel="noopener">Twilio's Terms of Service</a>. You are responsible for compliance with applicable telecommunications regulations.</li>
       <li><strong>Google APIs:</strong> Access to Google services (Sheets, Drive, Gmail, Calendar) is subject to <a href="https://policies.google.com/terms" target="_blank" rel="noopener">Google's Terms of Service</a>. The Application's use of Google data is described in our <a href="privacy-policy.html">Privacy Policy</a>.</li>
+      <li><strong>Microsoft 365 / Graph API:</strong> Access to Microsoft services (OneDrive, Outlook, Calendar, Excel) is subject to <a href="https://www.microsoft.com/en-us/servicesagreement" target="_blank" rel="noopener">Microsoft Services Agreement</a>. The Application's use of Microsoft data is described in our <a href="privacy-policy.html">Privacy Policy</a>.</li>
       <li><strong>AI Providers:</strong> If you configure an AI provider (Gemini, OpenAI, Anthropic, xAI, Groq, Qwen), your use is subject to that provider's terms of service and your own API key agreement with them.</li>
     </ul>
 
@@ -103,11 +111,20 @@
       <li>Revoke access if you no longer wish the Application to interact with your Google data</li>
     </ul>
 
-    <h2>7. Intellectual Property</h2>
+    <h2>7. Microsoft 365 API Usage</h2>
+    <p>When using Microsoft 365 integrations, you additionally agree to:</p>
+    <ul>
+      <li>Comply with the <a href="https://learn.microsoft.com/en-us/legal/microsoft-apis/terms-of-use" target="_blank" rel="noopener">Microsoft API Terms of Use</a></li>
+      <li>Only connect Microsoft accounts that you own or have authorization to use</li>
+      <li>Review and understand which Microsoft Graph permissions are requested before authorizing access</li>
+      <li>Revoke access if you no longer wish the Application to interact with your Microsoft data</li>
+    </ul>
+
+    <h2>8. Intellectual Property</h2>
     <p>The Application's source code, documentation, and branding are the property of Gold-B's Agent. The Application is built on the OpenClaw platform, which retains its own intellectual property rights.</p>
     <p>You are granted a non-exclusive, non-transferable license to install and use the Application for your own personal or business purposes.</p>
 
-    <h2>8. Disclaimer of Warranties</h2>
+    <h2>9. Disclaimer of Warranties</h2>
     <div class="highlight">
       <p>THE APPLICATION IS PROVIDED "AS IS" AND "AS AVAILABLE" WITHOUT WARRANTIES OF ANY KIND, WHETHER EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE, AND NON-INFRINGEMENT.</p>
     </div>
@@ -119,7 +136,7 @@
       <li>Automated messages sent by the Application will be delivered successfully</li>
     </ul>
 
-    <h2>9. Limitation of Liability</h2>
+    <h2>10. Limitation of Liability</h2>
     <p>To the maximum extent permitted by applicable law, Gold-B's Agent and its developers shall not be liable for any indirect, incidental, special, consequential, or punitive damages arising from:</p>
     <ul>
       <li>Your use of or inability to use the Application</li>
@@ -129,24 +146,24 @@
       <li>Unauthorized access to your installation due to inadequate security measures</li>
     </ul>
 
-    <h2>10. Indemnification</h2>
+    <h2>11. Indemnification</h2>
     <p>You agree to indemnify and hold harmless Gold-B's Agent and its developers from any claims, damages, losses, or expenses (including legal fees) arising from your use of the Application, violation of these Terms, or infringement of any third-party rights.</p>
 
-    <h2>11. Termination</h2>
+    <h2>12. Termination</h2>
     <p>Since the Application is self-hosted, you may stop using it at any time by uninstalling it from your machine. Upon uninstallation:</p>
     <ul>
       <li>All local data and configuration are removed</li>
-      <li>Google OAuth tokens are deleted from your machine (you may also revoke access from your <a href="https://myaccount.google.com/permissions" target="_blank" rel="noopener">Google Account</a>)</li>
+      <li>Google and Microsoft OAuth tokens are deleted from your machine (you may also revoke access from your <a href="https://myaccount.google.com/permissions" target="_blank" rel="noopener">Google Account</a> or <a href="https://account.live.com/consent/Manage" target="_blank" rel="noopener">Microsoft Account</a>)</li>
       <li>No residual data is retained by us, as we do not operate any external servers</li>
     </ul>
 
-    <h2>12. Modifications to Terms</h2>
+    <h2>13. Modifications to Terms</h2>
     <p>We reserve the right to modify these Terms at any time. Updated Terms will be included in new versions of the Application. Continued use of the Application after changes constitutes acceptance of the revised Terms.</p>
 
-    <h2>13. Governing Law</h2>
+    <h2>14. Governing Law</h2>
     <p>These Terms shall be governed by and construed in accordance with the laws of the State of Israel, without regard to conflict of law provisions.</p>
 
-    <h2>14. Contact</h2>
+    <h2>15. Contact</h2>
     <p>For questions about these Terms, please contact us by opening an issue on our <a href="https://github.com/Gold-b/goldb-agent-docs/issues" target="_blank" rel="noopener">public support repository</a> or by email at <strong>goldb.agent.support@gmail.com</strong>.</p>
 
   </div>

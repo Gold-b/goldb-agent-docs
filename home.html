@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Gold-B's Agent — WhatsApp Automation Platform</title>
+  <title>Gold-B's Agent — Multi-Channel Messaging Automation Platform</title>
   <link rel="icon" href="favicon.ico" type="image/x-icon">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -57,7 +57,7 @@
 
   <div class="hero">
     <h1>Gold-B's Agent</h1>
-    <p class="tagline">A self-hosted WhatsApp automation platform with AI-powered responses, rule-based routing, and seamless Google integrations.</p>
+    <p class="tagline">A self-hosted multi-channel messaging automation platform with AI-powered responses, visual flow builder, and seamless Google &amp; Microsoft integrations.</p>
     <span class="badge">Self-Hosted &middot; Privacy-First &middot; Open Architecture</span>
   </div>
 
@@ -65,40 +65,65 @@
 
     <section>
       <h2>What is Gold-B's Agent?</h2>
-      <p>Gold-B's Agent is a locally-installed automation platform that connects your WhatsApp Business account to an AI assistant. It processes incoming messages, matches them against configurable keyword rules, and delivers templated or AI-generated responses — all running on your own machine.</p>
-      <p>The platform runs as two Docker containers on your computer: a gateway that handles WhatsApp messaging, and an admin panel for configuration. All data stays on your hardware — nothing is stored on external servers controlled by us.</p>
+      <p>Gold-B's Agent is a locally-installed automation platform that connects your WhatsApp, Telegram, Instagram, Messenger, SMS, and Email accounts to an AI assistant. It processes incoming messages across all channels, matches them against configurable keyword rules, and delivers templated or AI-generated responses — all running on your own machine.</p>
+      <p>The platform runs as two Docker containers on your computer: a gateway that handles WhatsApp messaging, and an admin panel that manages all channels, configuration, and a visual flow builder. All data stays on your hardware — nothing is stored on external servers controlled by us.</p>
     </section>
 
     <section>
       <h2>Key Features</h2>
       <div class="features">
         <div class="feature-card">
-          <h3>AI-Powered Responses</h3>
-          <p>Supports multiple AI providers (Gemini, OpenAI, Claude, Grok, Groq, Qwen) for intelligent, context-aware replies.</p>
+          <h3>Multi-Channel Messaging</h3>
+          <p>Manage WhatsApp, Telegram, Instagram, Facebook Messenger, SMS, and Email from a single admin panel with unified automation rules.</p>
         </div>
         <div class="feature-card">
-          <h3>Rule-Based Automation</h3>
-          <p>Keyword matching with template responses, lead routing, and multi-channel forwarding.</p>
+          <h3>AI-Powered Responses</h3>
+          <p>Supports multiple AI providers (Gemini, OpenAI, Claude, Grok, Groq, Qwen) for intelligent, context-aware replies across all channels.</p>
+        </div>
+        <div class="feature-card">
+          <h3>Visual Flow Builder</h3>
+          <p>Design complex automation flows with a drag-and-drop visual editor. 20 node types including conditions, AI responses, HTTP requests, and more.</p>
         </div>
         <div class="feature-card">
           <h3>Knowledge Base (RAG)</h3>
-          <p>Upload documents (PDF, DOCX, TXT) and let the AI retrieve relevant information to answer questions.</p>
+          <p>Upload documents (PDF, DOCX, TXT) and let the AI retrieve relevant information to answer questions. Includes OCR for scanned documents.</p>
         </div>
         <div class="feature-card">
-          <h3>Google Integrations</h3>
-          <p>Connect Google Sheets, Drive, Gmail, and Calendar for automated data logging and notifications.</p>
+          <h3>Google &amp; Microsoft Integrations</h3>
+          <p>Connect Google Sheets, Drive, Gmail, Calendar, and Microsoft 365 (OneDrive, Outlook, Calendar, Excel) for automated data logging and notifications.</p>
+        </div>
+        <div class="feature-card">
+          <h3>Knowledge Sources</h3>
+          <p>Sync data from 10 platforms (Gmail, Sheets, Drive, Calendar, OneDrive, Outlook, Microsoft Calendar, Excel, WhatsApp, Telegram) into AI knowledge agents.</p>
         </div>
       </div>
     </section>
 
     <section>
-      <h2>Google API Integrations</h2>
-      <p>Gold-B's Agent integrates with the following Google services to enhance automation workflows. Each integration is optional and can be enabled or disabled independently by the user.</p>
+      <h2>Platform Integrations</h2>
+      <p>Gold-B's Agent integrates with the following services to enhance automation workflows. Each integration is optional and can be enabled or disabled independently by the user.</p>
+      <h3 style="font-size: 1.1rem; font-weight: 600; color: #fff; margin-bottom: 12px;">Google</h3>
       <div class="integrations">
         <span class="int-badge">Google Sheets — Lead logging &amp; data export</span>
         <span class="int-badge">Google Drive — Document storage</span>
         <span class="int-badge">Gmail — Email reading &amp; sending</span>
         <span class="int-badge">Google Calendar — Event reminders</span>
+      </div>
+      <h3 style="font-size: 1.1rem; font-weight: 600; color: #fff; margin: 20px 0 12px;">Microsoft 365</h3>
+      <div class="integrations">
+        <span class="int-badge">OneDrive — File storage &amp; sync</span>
+        <span class="int-badge">Outlook — Email reading &amp; sending</span>
+        <span class="int-badge">Microsoft Calendar — Event management</span>
+        <span class="int-badge">Microsoft Excel — Data logging &amp; export</span>
+      </div>
+      <h3 style="font-size: 1.1rem; font-weight: 600; color: #fff; margin: 20px 0 12px;">Messaging Channels</h3>
+      <div class="integrations">
+        <span class="int-badge">WhatsApp — Primary messaging gateway</span>
+        <span class="int-badge">Telegram — Bot API</span>
+        <span class="int-badge">Instagram — Meta Graph API</span>
+        <span class="int-badge">Facebook Messenger — Meta API</span>
+        <span class="int-badge">SMS — Twilio</span>
+        <span class="int-badge">Email — Gmail &amp; Microsoft</span>
       </div>
     </section>
 
@@ -106,8 +131,8 @@
       <h2>How It Works</h2>
       <p><strong>1. Install</strong> — Run the installer on your Windows or Linux machine. It sets up Docker containers automatically.</p>
       <p><strong>2. Configure</strong> — Open the local admin panel to set up keywords, rules, templates, and integrations.</p>
-      <p><strong>3. Connect</strong> — Scan the WhatsApp QR code and optionally connect your Google account via OAuth 2.0.</p>
-      <p><strong>4. Automate</strong> — The agent processes incoming messages 24/7, routing them through your configured rules and AI providers.</p>
+      <p><strong>3. Connect</strong> — Scan the WhatsApp QR code, connect Telegram/Instagram/Messenger bots, and optionally link your Google or Microsoft account via OAuth 2.0.</p>
+      <p><strong>4. Automate</strong> — The agent processes incoming messages across all channels 24/7, routing them through your configured rules, visual flows, and AI providers.</p>
     </section>
 
   </div>
